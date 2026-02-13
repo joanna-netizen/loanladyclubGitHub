@@ -28,29 +28,29 @@ git init
 **Option A – Using GitHub in the browser**
 
 1. Go to https://github.com/new  
-2. Repository name: `joanna-perry-website` (or `the-loan-lady-club` if you prefer)  
+2. Repository name: `loanladyclubGitHub` (or another name if you prefer)  
 3. Set visibility to **Private**  
 4. Do **not** add a README, .gitignore, or license (the project already has these where needed)  
 5. Click **Create repository**  
 6. On the new repo page, copy the **HTTPS** URL, e.g.  
-   `https://github.com/joanna-netizen/joanna-perry-website.git`
+   `https://github.com/joanna-netizen/loanladyclubGitHub.git`
 
 **Option B – Using GitHub CLI (if you install `gh`)**
 
 ```bash
 cd "c:\Users\joann\OneDrive\Desktop\WEBSITE FOLDER\whole-wasp"
 gh auth login
-gh repo create joanna-perry-website --private --source=. --remote=origin --push
+gh repo create loanladyclubGitHub --private --source=. --remote=origin --push
 ```
 
 If you use Option B and it succeeds, you can skip steps 5 and 6 below.
 
 ## 5. Add the remote (if you used Option A)
 
-Replace `joanna-netizen` and `joanna-perry-website` with your GitHub username and repo name if different:
+Replace `joanna-netizen` and `loanladyclubGitHub` with your GitHub username and repo name if different:
 
 ```bash
-git remote add origin https://github.com/joanna-netizen/joanna-perry-website.git
+git remote add origin https://github.com/joanna-netizen/loanladyclubGitHub.git
 ```
 
 ## 6. Add all files, commit, and push
@@ -77,7 +77,7 @@ cd "c:\Users\joann\OneDrive\Desktop\WEBSITE FOLDER\whole-wasp"
 
 **If push fails (auth/login issues):**
 
-1. **Create the repo** (if it doesn't exist): https://github.com/new → name: `joanna-perry-website`, private, no README
+1. **Create the repo** (if it doesn't exist): https://github.com/new → name: `loanladyclubGitHub`, private, no README
 2. **Create a Personal Access Token**: https://github.com/settings/tokens → "Generate new token (classic)" → check `repo` scope → copy the token
 3. **Run with token** (one-time, token is not saved):
    ```powershell

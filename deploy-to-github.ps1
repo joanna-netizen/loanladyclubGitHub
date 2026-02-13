@@ -30,13 +30,13 @@ if ($status) {
 }
 
 # 3. Push to GitHub
-$remote = "https://github.com/joanna-netizen/joanna-perry-website.git"
+$remote = "https://github.com/joanna-netizen/loanladyclubGitHub.git"
 $branch = "main"
 
 # Option A: Use GITHUB_TOKEN if set (e.g. $env:GITHUB_TOKEN = "ghp_xxxx")
 if ($env:GITHUB_TOKEN) {
     Write-Host "Pushing using GITHUB_TOKEN..." -ForegroundColor Yellow
-    $urlWithToken = "https://joanna-netizen:$($env:GITHUB_TOKEN)@github.com/joanna-netizen/joanna-perry-website.git"
+    $urlWithToken = "https://joanna-netizen:$($env:GITHUB_TOKEN)@github.com/joanna-netizen/loanladyclubGitHub.git"
     git push $urlWithToken $branch 2>&1
     if ($LASTEXITCODE -eq 0) {
         Write-Host "`nDeployed successfully!" -ForegroundColor Green

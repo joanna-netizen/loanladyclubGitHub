@@ -66,4 +66,25 @@ If GitHub asks for login, use your GitHub username and a **Personal Access Token
 
 ---
 
+## Quick deploy (recommended)
+
+Use the deploy script instead of typing commands manually:
+
+```powershell
+cd "c:\Users\joann\OneDrive\Desktop\WEBSITE FOLDER\whole-wasp"
+.\deploy-to-github.ps1
+```
+
+**If push fails (auth/login issues):**
+
+1. **Create the repo** (if it doesn't exist): https://github.com/new → name: `joanna-perry-website`, private, no README
+2. **Create a Personal Access Token**: https://github.com/settings/tokens → "Generate new token (classic)" → check `repo` scope → copy the token
+3. **Run with token** (one-time, token is not saved):
+   ```powershell
+   $env:GITHUB_TOKEN = "ghp_your_token_here"
+   .\deploy-to-github.ps1
+   ```
+
+---
+
 After this, your site code will be in a private GitHub repo and you can connect it to Netlify (or another host) for deployment.

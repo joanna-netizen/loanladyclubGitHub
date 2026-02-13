@@ -1,0 +1,81 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import '../../styles/global.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/images/og-default.jpg',
+  canonical = Astro.url.pathname
+} = Astro.props;
+
+const siteTitle = 'The Loan Lady Club';
+const fullTitle = `${title} | ${siteTitle}`;
+const baseUrl = 'https://joannaperry.com';
+const canonicalURL = new URL(canonical, baseUrl).href;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "The Loan Lady Club",
+  "description": description,
+  "url": baseUrl,
+  "logo": new URL('/images/logo.svg', baseUrl).href,
+  "image": new URL(ogImage, baseUrl).href,
+  "founder": { "@type": "Person", "name": "Joanna Perry", "jobTitle": "CEO & Senior Mortgage Broker" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Sacramento", "addressRegion": "CA", "addressCountry": "US" },
+  "areaServed": "California",
+  "priceRange": "$$"
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+  <title>{fullTitle}</title>
+  <meta name="title" content={fullTitle}>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonicalURL}>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={new URL(ogImage, baseUrl).href}>
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={canonicalURL}>
+  <meta property="twitter:title" content={fullTitle}>
+  <meta property="twitter:description" content={description}>
+  <meta property="twitter:image" content={new URL(ogImage, baseUrl).href}>
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Joanna Perry, The Loan Lady Club">
+  <meta name="keywords" content="mortgage broker, California home loans, first-time homebuyer, VA loans, refinancing, pre-approval, Joanna Perry">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+</head>
+<body class="bg-slate-900 text-slate-50">
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+  <script>
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, observerOptions);
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>

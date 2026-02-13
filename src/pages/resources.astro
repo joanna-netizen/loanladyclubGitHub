@@ -1,0 +1,27 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import MortgageCalculator from '../components/interactive/MortgageCalculator.astro';
+import ReadinessQuiz from '../components/interactive/ReadinessQuiz.astro';
+import SectionHeader from '../components/shared/SectionHeader.astro';
+---
+
+<Layout title="Resources - Calculators, Quiz, and Guides" description="Homebuyer resources: payment calculator, readiness quiz, guides, and education. The Loan Lady Club puts lending and education together." canonical="/resources">
+  <section class="section-padding pt-32">
+    <div class="container-custom">
+      <h1 class="text-4xl font-display font-bold mb-6 text-center">Resources</h1>
+      <p class="text-slate-400 text-center max-w-2xl mx-auto mb-16">Tools and education to help you plan. For personalized answers, book a call.</p>
+      <SectionHeader title="Interactive Tools" />
+      <div class="grid lg:grid-cols-2 gap-12 mb-16">
+        <MortgageCalculator />
+        <ReadinessQuiz />
+      </div>
+      <SectionHeader title="Downloadable Guides" subtitle="(Coming soon: email capture for PDF guides)" />
+      <div class="card-dark max-w-2xl mx-auto mb-16">
+        <p class="text-slate-400">We are preparing first-time buyer guides and glossary PDFs. In the meantime, use the calculator and quiz above—or book a consultation for a custom plan.</p>
+      </div>
+      <div class="text-center">
+        <a href="/contact" class="btn-primary">Book a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+</Layout>

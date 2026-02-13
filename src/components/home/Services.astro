@@ -1,0 +1,39 @@
+---
+const services = [
+  { title: 'First-Time Homebuyers', desc: 'Programs and guidance for your first purchase.', href: '/services/first-time-buyers' },
+  { title: 'Refinancing', desc: 'Lower your rate, tap equity, or shorten your term.', href: '/services/refinancing' },
+  { title: 'VA Loans', desc: 'Zero down and competitive rates for veterans.', href: '/services/va-loans' },
+  { title: 'Investment Properties', desc: 'Finance your next rental or flip.', href: '/services/investment-properties' },
+  { title: 'Renovation Loans', desc: 'Buy and renovate with one loan.', href: '/services/renovation-loans' },
+  { title: 'Down Payment Assistance', desc: 'Explore grants and programs that can help.', href: '/services/down-payment-assistance' },
+];
+---
+
+<section class="section-padding bg-slate-800/50">
+  <div class="container-custom">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">How We Can Help</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">From first-time buyers to investors—we have the programs and the patience to explain them.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((s) => (
+        <a href={s.href} class="card-dark block group animate-on-scroll">
+          <div class="w-12 h-12 rounded-lg bg-amber-400/20 flex items-center justify-center mb-4 group-hover:bg-amber-400/30 transition-colors">
+            <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-100 mb-2 group-hover:text-amber-400 transition-colors">{s.title}</h3>
+          <p class="text-slate-400 text-sm mb-4">{s.desc}</p>
+          <span class="text-amber-400 text-sm font-medium inline-flex items-center gap-1">
+            Learn more
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-12 animate-on-scroll">
+      <a href="/services" class="btn-secondary">View All Services</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import SectionHeader from '../components/shared/SectionHeader.astro';
+
+const testimonials = [
+  { name: 'Sarah M.', text: 'Joanna did not just get us a loan—she taught us how to understand our options. We felt in control the whole time.', location: 'Sacramento, CA', tag: 'First-time buyer' },
+  { name: 'James & Lisa T.', text: 'After being denied elsewhere, we were nervous. Joanna found a path that worked and walked us through every step.', location: 'Roseville, CA', tag: 'Denied elsewhere' },
+  { name: 'Michael R.', text: 'The pre-underwriting process was a game-changer. We knew exactly what we could afford before we made an offer.', location: 'Folsom, CA', tag: 'Buyers Edge' },
+  { name: 'Jennifer K.', text: 'As a veteran, the VA loan process was new to me. Joanna made it simple and we closed in 21 days.', location: 'Elk Grove, CA', tag: 'VA loan' },
+];
+---
+
+<Layout title="Testimonials - Success Stories" description="Real stories from clients of The Loan Lady Club. First-time buyers, VA loans, refinances, and clients who were denied elsewhere." canonical="/testimonials">
+  <section class="section-padding pt-32">
+    <div class="container-custom">
+      <SectionHeader title="What Clients Say" subtitle="Real stories from real people." />
+      <div class="grid md:grid-cols-2 gap-6 mb-12">
+        {testimonials.map((t) => (
+          <div class="card-dark">
+            <p class="text-slate-300 mb-4">"{t.text}"</p>
+            <p class="font-semibold text-amber-400">{t.name}</p>
+            <p class="text-sm text-slate-500">{t.location}</p>
+            {t.tag && <span class="inline-block mt-2 text-xs px-2 py-1 bg-amber-400/20 text-amber-400 rounded">{t.tag}</span>}
+          </div>
+        ))}
+      </div>
+      <div class="text-center">
+        <a href="/contact" class="btn-primary">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </section>
+</Layout>

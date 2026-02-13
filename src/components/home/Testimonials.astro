@@ -1,0 +1,55 @@
+---
+const videoTestimonials = [
+  { thumb: '/images/video-thumb.svg', quote: 'Denied by 2 banks, approved with Joanna', tag: 'First-time buyer' },
+  { thumb: '/images/video-thumb.svg', quote: 'Closed in 21 days', tag: 'VA loan' },
+  { thumb: '/images/video-thumb.svg', quote: 'She explained everything so clearly', tag: 'Refinance' },
+];
+const writtenTestimonials = [
+  { name: 'Sarah M.', text: 'Joanna did not just get us a loan—she taught us how to understand our options. We felt in control the whole time.', location: 'Sacramento, CA' },
+  { name: 'James & Lisa T.', text: 'After being denied elsewhere, we were nervous. Joanna found a path that worked and walked us through every step.', location: 'Roseville, CA' },
+  { name: 'Michael R.', text: 'The pre-underwriting process was a game-changer. We knew exactly what we could afford before we made an offer.', location: 'Folsom, CA' },
+];
+---
+
+<section class="section-padding bg-slate-900">
+  <div class="container-custom">
+    <div class="text-center mb-16 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">What Clients Say</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">Real stories from real people—many who were denied elsewhere first.</p>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-6 mb-16">
+      {videoTestimonials.map((v) => (
+        <a href="/testimonials" class="group block animate-on-scroll">
+          <div class="aspect-video rounded-xl bg-slate-800 border border-slate-700 overflow-hidden relative group-hover:border-amber-400 transition-colors">
+            <img src={v.thumb} alt="" class="w-full h-full object-cover" width="400" height="225" />
+            <div class="absolute inset-0 bg-slate-900/60 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-amber-400/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <svg class="w-7 h-7 text-slate-900 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <p class="text-sm font-medium text-white">{v.quote}</p>
+              <span class="text-xs text-amber-400">{v.tag}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+    <div class="relative">
+      <div class="overflow-hidden">
+        <div class="flex gap-6 pb-4 animate-on-scroll" id="testimonial-track">
+          {writtenTestimonials.map((t) => (
+            <div class="card-dark flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+              <p class="text-slate-300 mb-4">"{t.text}"</p>
+              <p class="font-semibold text-amber-400">{t.name}</p>
+              <p class="text-sm text-slate-500">{t.location}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-12 animate-on-scroll">
+      <a href="/testimonials" class="btn-primary">Read More Success Stories</a>
+    </div>
+  </div>
+</section>

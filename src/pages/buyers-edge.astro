@@ -1,0 +1,50 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import SectionHeader from '../components/shared/SectionHeader.astro';
+import ProgressTracker from '../components/shared/ProgressTracker.astro';
+
+const steps = [
+  { title: 'Application & document intake', description: 'We gather your income, assets, and credit info.' },
+  { title: 'Credit review', description: 'We review your credit report and address any issues.' },
+  { title: 'Income & employment verification', description: 'We verify your income and employment.' },
+  { title: 'Asset verification', description: 'We document your down payment and reserves.' },
+  { title: 'Full underwriting review', description: 'Our underwriters review your complete file.' },
+  { title: 'Condition clearance', description: 'We clear any conditions and finalize approval.' },
+  { title: 'Pre-underwriting letter', description: 'You receive a letter that shows your true buying power.' },
+  { title: 'You shop with confidence', description: 'Make offers knowing your financing is solid.' },
+];
+---
+
+<Layout
+  title="Buyer's Edge Program - Pre-Underwriting Before You Shop"
+  description="The 8-step Buyer's Edge Program pre-underwrites your loan before you view a single home. No surprises. No last-minute denials. Just clarity."
+  canonical="/buyers-edge"
+>
+  <section class="section-padding pt-32">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center animate-on-scroll">
+        <h1 class="text-4xl md:text-5xl font-display font-bold mb-6">The Buyer's Edge Program</h1>
+        <p class="text-xl text-slate-400 mb-10">Eight steps. One goal: you know exactly what you qualify for before you step into an open house.</p>
+        <ProgressTracker steps={steps} currentStep={0} />
+      </div>
+    </div>
+  </section>
+  <section class="section-padding bg-slate-800/50">
+    <div class="container-custom">
+      <SectionHeader title="Why This Exists" subtitle="Most pre-approvals are a guess. We do the real work first." />
+      <div class="max-w-3xl mx-auto space-y-4 text-slate-400">
+        <p>Typical pre-approval: a quick look, a letter, and hope. Real underwriting happens later—when you're already in contract. That's when surprises appear and deals fall apart.</p>
+        <p>The Buyer's Edge Program flips that. We complete a full underwriting review before you shop. When you make an offer, we've already done the heavy lifting. Sellers and agents take you seriously. You avoid wasted inspections and heartbreak.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section-padding">
+    <div class="container-custom">
+      <SectionHeader title="What Happens After You Book" />
+      <p class="max-w-3xl mx-auto text-slate-400 mb-8">We'll send you a secure document checklist and schedule a call to walk through your situation. From there, we move through the 8 steps at your pace—usually 2–4 weeks—until you have your pre-underwriting letter and the confidence to shop.</p>
+      <div class="text-center">
+        <a href="/contact" class="btn-primary">Start the Buyer's Edge Program</a>
+      </div>
+    </div>
+  </section>
+</Layout>

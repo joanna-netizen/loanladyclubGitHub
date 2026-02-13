@@ -1,0 +1,34 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import ContactForm from '../components/shared/ContactForm.astro';
+---
+
+<Layout title="Contact - Book a Free Consultation" description="Book a free 15-minute consultation with Joanna Perry. Or reach out by phone or email. Sacramento, CA. Serving all of California." canonical="/contact">
+  <section class="section-padding pt-32">
+    <div class="container-custom">
+      <h1 class="text-4xl font-display font-bold mb-6 text-center">Contact</h1>
+      <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12">Book a free 15-minute call—no pressure. Or send us a message.</p>
+      <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div>
+          <h2 class="text-xl font-semibold text-amber-400 mb-4">Book a time (Calendly)</h2>
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 min-h-[400px] flex items-center justify-center">
+            <p class="text-slate-500 text-sm">Replace with your Calendly embed. Add: <code class="text-amber-400">data-url="https://calendly.com/YOUR_CALENDLY_LINK"</code></p>
+          </div>
+          <p class="text-slate-500 text-sm mt-4">Or call <a href="tel:+15551234567" class="text-amber-400 hover:underline">(XXX) XXX-XXXX</a> or email <a href="mailto:joanna@loanladyclub.com" class="text-amber-400 hover:underline">joanna@loanladyclub.com</a></p>
+        </div>
+        <div>
+          <h2 class="text-xl font-semibold text-amber-400 mb-4">Send a message</h2>
+          <ContactForm />
+        </div>
+      </div>
+      <div class="mt-16 max-w-2xl mx-auto">
+        <h2 class="text-lg font-semibold text-slate-200 mb-4">What to prepare for the call</h2>
+        <ul class="text-slate-400 space-y-2 text-sm">
+          <li>• Your rough timeline (when you want to buy or refinance)</li>
+          <li>• A general idea of income and savings (exact numbers can come later)</li>
+          <li>• Any questions you have—we will answer them</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

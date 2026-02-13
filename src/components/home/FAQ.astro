@@ -1,0 +1,38 @@
+---
+import FAQAccordion from '../interactive/FAQAccordion.astro';
+const faqItems = [
+  { q: 'What is pre-underwriting vs. pre-approval?', a: 'Pre-approval is often a quick review and a letter. Pre-underwriting means we fully review your income, assets, and credit before you shop—so you know your true budget and there are no surprises later.' },
+  { q: 'How long does the Buyer\'s Edge process take?', a: 'Most clients complete the 8-step process within 2–4 weeks, depending on how quickly documents are gathered. We move at your pace.' },
+  { q: 'Do you work with first-time buyers?', a: 'Yes. First-time buyers are a specialty. We walk you through every step and explain programs like down payment assistance that can help.' },
+  { q: 'What if I was denied by another lender?', a: 'We work with many clients who were denied elsewhere. Different lenders have different guidelines; we shop multiple options and find paths that others miss.' },
+  { q: 'Are you only in Sacramento?', a: 'We\'re based in Sacramento and serve all of California. We work remotely with clients across the state.' },
+  { q: 'Is the consultation really free?', a: 'Yes. The 15-minute consultation is free and no-pressure. We\'ll discuss your situation and whether we\'re a good fit—no obligation.' },
+];
+---
+
+<section class="section-padding bg-slate-800/50">
+  <div class="container-custom">
+    <div class="text-center mb-12 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Frequently Asked Questions</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">Quick answers. For the full picture, book a call.</p>
+    </div>
+    <div class="max-w-3xl mx-auto mb-16 animate-on-scroll">
+      <FAQAccordion items={faqItems} />
+    </div>
+    <div class="border-t border-slate-700 pt-12 flex flex-wrap justify-center gap-6 text-sm text-slate-500 mb-12">
+      <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 15+ years experience</span>
+      <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> 100% referral-based</span>
+      <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> CA licensed</span>
+      <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> Survived 2008</span>
+    </div>
+    <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 md:p-12 text-center border border-slate-700 animate-on-scroll">
+      <h3 class="text-2xl font-display font-bold mb-4">Ready for a Different Kind of Mortgage Experience?</h3>
+      <p class="text-slate-400 mb-6 max-w-xl mx-auto">Book a free 15-minute consultation. No pressure—just clarity.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/contact" class="btn-primary">Book Your Free Consultation</a>
+        <a href="mailto:joanna@loanladyclub.com" class="text-slate-400 hover:text-amber-400 transition-colors">Or email joanna@loanladyclub.com</a>
+      </div>
+      <p class="text-slate-500 text-sm mt-6 font-handwriting text-xl">Where lending meets education.</p>
+    </div>
+  </div>
+</section>

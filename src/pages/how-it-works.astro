@@ -1,0 +1,44 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import SectionHeader from '../components/shared/SectionHeader.astro';
+---
+
+<Layout title="How It Works - Our Process vs. Typical" description="See how our pre-underwriting process differs from the typical pre-approval. Fewer surprises, more clarity." canonical="/how-it-works">
+  <section class="section-padding pt-32">
+    <div class="container-custom">
+      <h1 class="text-4xl font-display font-bold mb-6 text-center">How It Works</h1>
+      <p class="text-slate-400 text-center max-w-2xl mx-auto mb-12">We do the underwriting before you shop—so you know where you stand from day one.</p>
+      <SectionHeader title="Industry Standard vs. Our Approach" />
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="card-dark">
+          <h3 class="text-lg font-semibold text-rose-400 mb-4">Typical pre-approval</h3>
+          <ul class="space-y-2 text-slate-400 text-sm">
+            <li>• Quick application, minimal doc review</li>
+            <li>• Letter issued; real underwriting later</li>
+            <li>• You shop on a guess</li>
+            <li>• Surprises can appear in final underwriting</li>
+          </ul>
+        </div>
+        <div class="card-dark border-amber-400/50">
+          <h3 class="text-lg font-semibold text-amber-400 mb-4">Our approach (Buyer's Edge)</h3>
+          <ul class="space-y-2 text-slate-400 text-sm">
+            <li>• Full document intake and review</li>
+            <li>• Complete underwriting before you shop</li>
+            <li>• You know your true budget</li>
+            <li>• No last-minute surprises</li>
+          </ul>
+        </div>
+      </div>
+      <SectionHeader title="What Happens After You Book" />
+      <div class="max-w-2xl mx-auto space-y-4 text-slate-400 mb-12">
+        <p>1. We have a 15-minute call to discuss your situation and goals.</p>
+        <p>2. We send you a secure checklist and collect your documents.</p>
+        <p>3. We complete the 8-step Buyer's Edge process (usually 2–4 weeks).</p>
+        <p>4. You receive your pre-underwriting letter and shop with confidence.</p>
+      </div>
+      <div class="text-center">
+        <a href="/contact" class="btn-primary">Book Your Free Consultation</a>
+      </div>
+    </div>
+  </section>
+</Layout>

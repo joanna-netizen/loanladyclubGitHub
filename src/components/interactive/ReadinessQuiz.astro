@@ -1,0 +1,75 @@
+---
+const questions = [
+  { id: 'credit', q: 'How would you describe your credit?', options: ['Excellent (720+)', 'Good (660-719)', 'Fair (620-659)', 'Needs work (below 620)'] },
+  { id: 'income', q: 'Is your income stable and documented?', options: ['Yes, W-2 employed', 'Yes, self-employed with 2+ years', 'Somewhat stable', 'Irregular or new'] },
+  { id: 'savings', q: 'Do you have savings for down payment and closing costs?', options: ['Yes, more than needed', 'Yes, enough for target', 'Building savings', 'Just starting'] },
+  { id: 'timeline', q: 'When do you plan to buy?', options: ['Within 3 months', '3–6 months', '6–12 months', '12+ months'] },
+];
+---
+
+<div class="card-dark max-w-2xl mx-auto" id="readiness-quiz">
+  <h3 class="text-xl font-semibold text-slate-100 mb-2">Homebuyer Readiness Quiz</h3>
+  <p class="text-slate-400 text-sm mb-6">Get a quick sense of where you stand. For detailed results, complete the quiz and we'll send you a PDF.</p>
+  <div class="w-full bg-slate-700 rounded-full h-2 mb-6">
+    <div class="bg-amber-400 h-2 rounded-full transition-all duration-300" id="quiz-progress" style="width: 0%"></div>
+  </div>
+  <div id="quiz-questions">
+    {questions.map((qu, qi) => (
+      <div class="quiz-step hidden" data-step={qi}>
+        <p class="font-medium text-slate-200 mb-3">{qu.q}</p>
+        <div class="space-y-2">
+          {qu.options.map((opt, oi) => (
+            <label class="flex items-center gap-3 p-3 rounded-lg border border-slate-700 hover:border-amber-400/50 cursor-pointer transition-colors">
+              <input type="radio" name={qu.id} value={oi} class="accent-amber-400" data-score={4 - oi} />
+              <span class="text-slate-300">{opt}</span>
+            </label>
+          ))}
+        </div>
+        <button type="button" class="quiz-next mt-4 btn-primary text-sm" data-step={qi}>Next</button>
+      </div>
+    ))}
+  </div>
+  <div id="quiz-result" class="hidden">
+    <p class="text-lg font-semibold text-amber-400 mb-2">Your score: <span id="quiz-score">0</span>/100</p>
+    <p class="text-slate-400 mb-4" id="quiz-message">Based on your answers, here are your next steps.</p>
+    <a href="/contact" class="btn-primary">Book a consultation to get a detailed plan</a>
+  </div>
+</div>
+
+<script>
+  const steps = document.querySelectorAll('.quiz-step');
+  const progressBar = document.getElementById('quiz-progress');
+  const resultDiv = document.getElementById('quiz-result');
+  const scoreEl = document.getElementById('quiz-score');
+  const messageEl = document.getElementById('quiz-message');
+  let currentStep = 0;
+  let totalScore = 0;
+  function showStep(i: number) {
+    steps.forEach((s, j) => (s as HTMLElement).classList.toggle('hidden', j !== i));
+    if (progressBar) progressBar.style.width = `${((i + 1) / steps.length) * 100}%`;
+  }
+  function finish() {
+    document.getElementById('quiz-questions')?.classList.add('hidden');
+    resultDiv?.classList.remove('hidden');
+    const score = Math.min(100, Math.round(totalScore / steps.length * 25));
+    if (scoreEl) scoreEl.textContent = String(score);
+    if (messageEl) {
+      if (score >= 80) messageEl.textContent = 'You are in a strong position. Book a consultation to get pre-underwritten and start shopping with confidence.';
+      else if (score >= 60) messageEl.textContent = 'You are close. A consultation can help you lock in the remaining steps so you are ready when the right home appears.';
+      else if (score >= 40) messageEl.textContent = 'Give yourself 6–12 months to strengthen your file. We can outline a plan and check in when you are ready.';
+      else messageEl.textContent = 'Building a solid foundation takes time. We can help you create a 12+ month plan and answer questions along the way.';
+    }
+  }
+  showStep(0);
+  steps.forEach((step, i) => {
+    const nextBtn = step.querySelector('.quiz-next');
+    const inputs = step.querySelectorAll('input[type="radio"]');
+    inputs.forEach((inp) => {
+      inp.addEventListener('change', () => { totalScore += Number((inp as HTMLInputElement).dataset.score) * 6.25; });
+    });
+    nextBtn?.addEventListener('click', () => {
+      if (i < steps.length - 1) { currentStep = i + 1; showStep(currentStep); }
+      else finish();
+    });
+  });
+</script>

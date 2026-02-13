@@ -1,0 +1,33 @@
+---
+export interface Props {
+  steps: { title: string; description?: string }[];
+  currentStep?: number;
+}
+const { steps, currentStep = 0 } = Astro.props;
+---
+
+<div class="progress-tracker space-y-4" data-current={currentStep}>
+  {steps.map((step, i) => {
+    const isComplete = i < currentStep;
+    const isCurrent = i === currentStep;
+    return (
+      <div class="flex gap-4 items-start">
+        <div class={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center border-2 transition-colors ${
+          isComplete ? 'bg-emerald-500 border-emerald-500 text-white' :
+          isCurrent ? 'border-amber-400 bg-amber-400/20 text-amber-400' :
+          'border-slate-600 text-slate-500'
+        }`}>
+          {isComplete ? (
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+          ) : (
+            <span>{i + 1}</span>
+          )}
+        </div>
+        <div class="flex-1 pt-1">
+          <h4 class={`font-semibold ${isCurrent ? 'text-amber-400' : 'text-slate-300'}`}>{step.title}</h4>
+          {step.description && <p class="text-sm text-slate-500 mt-1">{step.description}</p>}
+        </div>
+      </div>
+    );
+  })}
+</div>

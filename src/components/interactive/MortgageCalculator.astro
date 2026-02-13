@@ -1,0 +1,60 @@
+---
+---
+
+<div class="card-dark max-w-2xl mx-auto" id="mortgage-calculator">
+  <h3 class="text-xl font-semibold text-slate-100 mb-6">Payment Comfort Calculator</h3>
+  <p class="text-slate-400 text-sm mb-6">See what home price range fits your comfort level. This is an estimate—we'll give you precise numbers after reviewing your file.</p>
+  <div class="space-y-6">
+    <div>
+      <label class="block text-sm font-medium text-slate-300 mb-2">Comfortable monthly payment (P&I + taxes + insurance)</label>
+      <input type="range" id="payment-slider" min="1500" max="6000" step="100" value="3000" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+      <p class="text-amber-400 font-semibold mt-2">$<span id="payment-value">3000</span>/mo</p>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-slate-300 mb-2">Down payment</label>
+      <input type="range" id="down-slider" min="0" max="150000" step="5000" value="50000" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+      <p class="text-amber-400 font-semibold mt-2">$<span id="down-value">50,000</span></p>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-slate-300 mb-2">Interest rate (approx.)</label>
+      <input type="range" id="rate-slider" min="5" max="8" step="0.125" value="6.5" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-400">
+      <p class="text-amber-400 font-semibold mt-2"><span id="rate-value">6.5</span>%</p>
+    </div>
+    <div class="pt-4 border-t border-slate-700">
+      <p class="text-slate-400 text-sm mb-1">Estimated home price range (comfortable)</p>
+      <p class="text-2xl font-bold text-amber-400">$<span id="price-result">0</span></p>
+      <p class="text-slate-500 text-xs mt-2">Assumes ~1.2% property tax, ~0.35% insurance. For a personalized analysis, book a consultation.</p>
+    </div>
+  </div>
+  <a href="/contact" class="btn-primary mt-6 inline-block">Want a personalized analysis? Book consultation</a>
+</div>
+
+<script>
+  function formatNum(n: number) {
+    return n.toLocaleString();
+  }
+  const paymentSlider = document.getElementById('payment-slider') as HTMLInputElement;
+  const downSlider = document.getElementById('down-slider') as HTMLInputElement;
+  const rateSlider = document.getElementById('rate-slider') as HTMLInputElement;
+  const paymentVal = document.getElementById('payment-value');
+  const downVal = document.getElementById('down-value');
+  const rateVal = document.getElementById('rate-value');
+  const priceResult = document.getElementById('price-result');
+  function update() {
+    const payment = Number(paymentSlider?.value ?? 3000);
+    const down = Number(downSlider?.value ?? 50000);
+    const rate = Number(rateSlider?.value ?? 6.5) / 100 / 12;
+    const taxIns = 0.012 + 0.0035;
+    if (paymentVal) paymentVal.textContent = formatNum(payment);
+    if (downVal) downVal.textContent = formatNum(down);
+    if (rateVal) rateVal.textContent = rateSlider?.value ?? '6.5';
+    const pAndI = payment / (1 + taxIns / (rate * Math.pow(1 + rate, 360) / (Math.pow(1 + rate, 360) - 1)));
+    const loanAmount = pAndI * (Math.pow(1 + rate, 360) - 1) / (rate * Math.pow(1 + rate, 360));
+    const price = Math.round(loanAmount + down);
+    if (priceResult) priceResult.textContent = formatNum(price);
+  }
+  paymentSlider?.addEventListener('input', update);
+  downSlider?.addEventListener('input', update);
+  rateSlider?.addEventListener('input', update);
+  update();
+</script>

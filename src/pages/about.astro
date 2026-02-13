@@ -1,0 +1,61 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import SectionHeader from '../components/shared/SectionHeader.astro';
+---
+
+<Layout
+  title="About Joanna Perry - 15+ Years Mortgage Expertise"
+  description="Meet Joanna Perry, CEO of The Loan Lady Club. 15+ years experience, 100% referral-based, survived 2008 crash. Where lending meets education in California."
+  ogImage="/images/og-about.jpg"
+  canonical="/about"
+>
+  <section class="section-padding pt-32">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-12 items-center animate-on-scroll">
+        <div>
+          <img src="/images/placeholder-avatar.svg" alt="Joanna Perry" class="rounded-2xl shadow-xl w-full max-w-md" width="500" height="600" />
+        </div>
+        <div>
+          <h1 class="text-4xl md:text-5xl font-display font-bold mb-6">Meet Joanna Perry</h1>
+          <p class="text-slate-400 text-lg mb-6">CEO & Senior Mortgage Broker. 15+ years in the industry. 100% referral-based. I survived the 2008 crash—and I built my practice on doing right by people, not just moving paperwork.</p>
+          <p class="text-slate-400 mb-6">Where lending meets education: I believe you deserve to understand every option, every fee, and every choice. So you can make decisions you feel good about—for your biggest investment.</p>
+          <a href="/contact" class="btn-primary">Book a Free Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-padding bg-slate-800/50">
+    <div class="container-custom">
+      <SectionHeader title="My Journey" subtitle="From surviving the crash to building a practice built on trust." />
+      <div class="max-w-3xl mx-auto space-y-6 text-slate-400">
+        <p>I've been in the mortgage industry since before 2008. I saw what happened when people were put into loans they didn't understand. I decided to do the opposite: educate first, lend second.</p>
+        <p>Today, every client I work with comes from a referral. No cold calls. No pressure. Just people who want clarity and a partner who puts their interests first.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section-padding">
+    <div class="container-custom">
+      <SectionHeader title="What Makes Us Different" />
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card-dark">
+          <h3 class="text-xl font-semibold text-amber-400 mb-2">Pre-Underwriting First</h3>
+          <p class="text-slate-400">We fully review your file before you shop—so you know exactly where you stand.</p>
+        </div>
+        <div class="card-dark">
+          <h3 class="text-xl font-semibold text-amber-400 mb-2">Education Over Sales</h3>
+          <p class="text-slate-400">We explain fee worksheets and options in plain English. You choose; we execute.</p>
+        </div>
+        <div class="card-dark">
+          <h3 class="text-xl font-semibold text-amber-400 mb-2">One Point of Contact</h3>
+          <p class="text-slate-400">You work with me and my team—not a call center. Questions get answered fast.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section-padding bg-slate-800/50">
+    <div class="container-custom text-center">
+      <h2 class="text-2xl font-display font-bold mb-4">Ready to work with someone who puts you first?</h2>
+      <a href="/contact" class="btn-primary">Book Your Free 15-Minute Call</a>
+    </div>
+  </section>
+</Layout>

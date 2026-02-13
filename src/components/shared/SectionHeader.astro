@@ -1,0 +1,13 @@
+---
+export interface Props {
+  title: string;
+  subtitle?: string;
+  class?: string;
+}
+const { title, subtitle, class: className = '' } = Astro.props;
+---
+
+<div class={`text-center mb-12 md:mb-16 animate-on-scroll ${className}`}>
+  <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">{title}</h2>
+  {subtitle && <p class="text-slate-400 max-w-2xl mx-auto">{subtitle}</p>}
+</div>

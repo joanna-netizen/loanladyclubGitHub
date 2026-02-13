@@ -1,0 +1,35 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import SectionHeader from '../../components/shared/SectionHeader.astro';
+
+const services = [
+  { title: 'First-Time Homebuyers', desc: 'Programs and guidance for your first purchase.', href: '/services/first-time-buyers' },
+  { title: 'Refinancing', desc: 'Lower your rate, tap equity, or shorten your term.', href: '/services/refinancing' },
+  { title: 'VA Loans', desc: 'Zero down and competitive rates for veterans.', href: '/services/va-loans' },
+  { title: 'Investment Properties', desc: 'Finance your next rental or flip.', href: '/services/investment-properties' },
+  { title: 'Renovation Loans', desc: 'Buy and renovate with one loan.', href: '/services/renovation-loans' },
+  { title: 'Down Payment Assistance', desc: 'Explore grants and programs that can help.', href: '/services/down-payment-assistance' },
+  { title: 'Complex Situations', desc: 'Denied elsewhere? Self-employed? We find paths others miss.', href: '/services/complex-situations' },
+];
+---
+
+<Layout
+  title="Services - First-Time Buyers, Refinancing, VA Loans & More"
+  description="California mortgage services: first-time homebuyers, refinancing, VA loans, investment properties, renovation loans, down payment assistance. Pre-underwriting before you shop."
+  canonical="/services"
+>
+  <section class="section-padding pt-32">
+    <div class="container-custom">
+      <SectionHeader title="How We Can Help" subtitle="From first-time buyers to investors—we have the programs and the patience to explain them." />
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((s) => (
+          <a href={s.href} class="card-dark block group">
+            <h3 class="text-lg font-semibold text-slate-100 mb-2 group-hover:text-amber-400 transition-colors">{s.title}</h3>
+            <p class="text-slate-400 text-sm mb-4">{s.desc}</p>
+            <span class="text-amber-400 text-sm font-medium">Learn more →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
